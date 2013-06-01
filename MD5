@@ -1,9 +1,9 @@
-c6530666609f40423a82879197729f5a *DESCRIPTION
+96340b03e711c68b1457fca083607f6e *DESCRIPTION
 ea5553f4524487ac92fc472fdee81def *NAMESPACE
-0ab1a43a77caa7321cb5e546a08cccd0 *R/smoothers.R
-b3a3848d47c885af9b8e40f885091327 *inst/CITATION
+9d189abbc66e7b2b0216ef1da6aee04f *R/smoothers.R
+99cfae39982794900993d753d43eda17 *inst/CITATION
 f0aa633f8105fc278beda5b761bc2118 *man/Fourier2d.Rd
-e9a064da79cb6cd0aefb9bfe7700c035 *man/hoods2dsmooth.Rd
+49db3b35a691ce6d03717bfb742cfbef *man/hoods2dsmooth.Rd
 f80a4910255b4a34b0e1d8e0fd12cf7d *man/kernel2dmeitsjer.Rd
 8073aca82240b13a99b841413071bdfc *man/kernel2dsmooth.Rd
-f09e04595a75c13653eecb41ac521000 *man/smoothie-package.Rd
+8c2520994b4f6573922b8147b2a00959 *man/smoothie-package.Rd

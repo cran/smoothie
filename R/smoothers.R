@@ -132,12 +132,14 @@ function( x, kernel.type=NULL, K=NULL, W=NULL, X=NULL, xdim=NULL, Nxy=NULL, setu
 } # end of 'kernel2dsmooth' function.
 
 kernel2dmeitsjer <- function(type="gauss", ...) {
+
    theta <- list(...)
-   if( !is.null( theta$h)) h <- theta$h
-   else if( !is.null( theta$nx) & !is.null( theta$ny)) {
+
+   if(!is.null(theta$h)) h <- theta$h
+   else if(!is.null(theta$nx) & !is.null(theta$ny)) {
         nx <- theta$nx
         ny <- theta$ny
-        if( !is.null(theta$a)) a <- theta$a
+        if(!is.null(theta$a)) a <- theta$a
         else a <- 1
         xgrid <- matrix( rep(1:nx,each=ny), nx, ny, byrow=TRUE)
         ygrid <- matrix( rep(1:ny,each=nx), nx, ny)
@@ -145,10 +147,12 @@ kernel2dmeitsjer <- function(type="gauss", ...) {
         ycen <- ny/2
         h <- (xgrid - xcen)^2 + (ygrid - ycen)^2
    }
+
    if( !is.null( theta$sigma)) {
 	sigma <- theta$sigma
 	sigma2 <- sigma^2
    }
+
    if( type=="average") out <- matrix( 1/(theta$nx*theta$ny), theta$nx, theta$ny)
    else if( type=="boxcar") out <- matrix( 1/(theta$n^2), theta$n, theta$n)
    else if( type=="cauchy") out <- 1/(1+h/sigma)
@@ -262,7 +266,7 @@ kernel2dmeitsjer <- function(type="gauss", ...) {
 	out <- (phi/h)*sin(h/phi)
 	out[ is.na( out)] <- 0
    }
-   return( out)
+   return(out)
 } # end of 'kernel2dmeitsjer' function.
 
 hoods2dsmooth <- function( x, lambda, W=NULL, setup=FALSE, ...) {
@@ -283,11 +287,14 @@ hoods2dsmooth <- function( x, lambda, W=NULL, setup=FALSE, ...) {
 } # end of 'hoods2dsmooth' function.
 
 gauss2dsmooth <- function( x, lambda, W=NULL, setup=FALSE, ...) {
-   return( kernel2dsmooth( x=x, kernel.type="gauss", sigma=lambda, W=W, setup=setup, ...))
-}
+
+    out <- kernel2dsmooth( x=x, kernel.type="gauss", sigma=lambda, W=W, setup=setup, ...)
+    return(out)
+
+} # end of 'gauss2dsmooth' function.
 
 disk2dsmooth <- function( x, lambda, W=NULL, setup=FALSE, ...) {
-   return( kernel2dsmooth( x=x, kernel.type="disk", r=lambda, W=W, setup=setup, ...))
+   return(kernel2dsmooth( x=x, kernel.type="disk", r=lambda, W=W, setup=setup, ...))
 }
 
 identity2dsmooth <- function( x, lambda=0, W=NULL, setup=FALSE, ...) {

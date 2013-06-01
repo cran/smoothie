@@ -10,6 +10,8 @@ citHeader("To cite package 'smoothie' in publications use:")
               author = personList(as.person("Eric Gilleland")),
               institution = "NCAR Technical Note, TN-502+STR, 17pp.",
               year = 2013,
+	      url="http://opensky.library.ucar.edu/collections/TECH-NOTE-000-000-000-869",
               textVersion =
               paste("Gilleland, E. (2013) Two-dimensional kernel smoothing: Using the R package smoothie. ",
-                    "NCAR Technical Note, TN-502+STR, 17pp.", sep=""))
+                    "NCAR Technical Note, TN-502+STR, 17pp.  ",
+		    "Available at: http://opensky.library.ucar.edu/collections/TECH-NOTE-000-000-000-869", sep=""))

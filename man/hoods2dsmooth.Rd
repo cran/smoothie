@@ -29,24 +29,35 @@ single numeric giving the smoothing parameter.  In the case of \code{hoods2dsmoo
 logical, should only the FFT of the kernel weights be returned (i.e., instead of the smoothed x field)?  Should not be used if \code{W} is supplied, or you may not get what you want (i.e., precedence is given to \code{W}'s being supplied).  Not used by \code{identity2dsmooth}.
 }
   \item{\dots}{
-optional arguments to the specific kernel type in the call to \code{kernel2dsmooth}, or really, to \code{kernel2dmeitsjer}.  Not used by \code{identity2dsmooth}.
+
+optional arguments to the specific kernel type in the call to \code{kernel2dsmooth}, or really, to \code{kernel2dmeitsjer}.  Not used by \code{identity2dsmooth}.  Note that for \code{gauss2dsmooth}, both \code{nx} and \code{ny} must be provided.
+
 }
+
 }
+
 \details{
+
 This is a wrapper function to \code{kernel2dsmooth}.  See its help file for more details.  These functions can be useful for functions that allow a user to smooth a field with a choice of smoothing functions.  Makes use of the convolution theorem with the fast Fourier transform for computational efficiency (Ritter and Wilson, 2001; Barrett and Myers, 2004).  Missing values are set to zero, and borders are zero-padded to an optimal amount.  See Hastie and Tibshirani (1990) for smoothing functions in the context of statistical analysis.
 
 \code{hoods2dsmooth} is a wrapper to \code{kernel2dsmooth} that employs the boxcar kernel with neighborhood length as the smoothing parameter, \code{lambda}.  This is the type of kernel smoothing, for example, proposed by Roberts and Lean (2008) and used in Ebert (2008) in the context of spatial weather forecast verification (and used by the \pkg{SpatialVx} package).  The smoothing parameter lambda should be an odd positive integer (though it need not be an actual integer recognized by R).  If it is not, then one of several things will happen depending on its value, and a warning is generated.  If it is not an integer (i.e., if floor(lambda) != lambda), the floor of lambda is taken. If it is even (possibly after flooring), one is subtracted from it.  If it is less than one (possibly after flooring and/or subtracting one), it is set to one (note that if lambda = 1, the field x is returned untouched).
 
-\code{gauss2dsmooth} is a wrapper to \code{kernel2dsmooth} that employs the Gaussian kernel with smoothing parameter, \code{lambda}, equal to the \code{sigma} parameter.  This is the type of smoothing applied originally for the practically perfect hindcast method in the context of spatial weather forecast verification (see Ebert, 2008).
+\code{gauss2dsmooth} is a wrapper to \code{kernel2dsmooth} that employs the Gaussian kernel with smoothing parameter, \code{lambda}, equal to the \code{sigma} parameter.  This is the type of smoothing applied originally for the practically perfect hindcast method in the context of spatial weather forecast verification (see Ebert, 2008).  If \code{W} is not specified, then one of either \code{h} or both \code{nx} and \code{ny} must be given (see the help file for \code{kernel2dmeitsjer}).
 
 \code{disk2dsmooth} is a wrapper to \code{kernel2dsmooth} that calls the disk kernel with smoothing parameter r (the radius of the disk).  This is the type of smoothing applied in Davis et al. (2006a, 2006b) in the context of feature-based spatial weather forecast verification.
 
 \code{identity2dsmooth} simply returns the field without smoothing it.  Provided for convenience.
+
 }
+
 \value{
+
 If \code{W} is not supplied and \code{setup} is TRUE, then a matrix is returned with dimensions chosen to optimize computational efficiency.  Otherwise, a matrix of the same dimension as \code{x} is returned giving the smoothed version of the field.
+
 }
+
 \references{
+
 Barrett, H. H. and Myers, K. J. (2004) \emph{Foundations of Image Science}.  Wiley Series in Pure and Applied Optics, Editor: B. E. A. Saleh, Hoboken, New Jersey, 1540pp.
 
 Davis, C. A., Brown, B. G. and Bullock, R. G. (2006a) Object-based verification of precipitation forecasts, Part I: Methodology and application to mesoscale rain areas. \emph{Mon. Wea. Rev.}, \bold{134}, 1772--1784.
@@ -62,10 +73,15 @@ Ritter, G. X. and Wilson, J. N. (2001) \emph{Handbook of Computer Vision Algorit
 Roberts, N. M. and Lean, H. W. (2008) Scale-selective verification of rainfall accumulations from high-resolution forecasts of convective events.  \emph{Mon. Wea. Rev.}, \bold{136}, 78--97.  doi:10.1175/2007MWR2123.1.
 
 }
+
 \author{
+
 Eric Gilleland
+
 }
+
 \seealso{
+
 \code{\link{kernel2dsmooth}}, \code{\link{kernel2dmeitsjer}}, \code{\link{fft}}
 
 }

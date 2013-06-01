@@ -11,6 +11,8 @@ Two-dimensional Field Smoothing
 
 \details{
 
+The manual for this package is given by Gilleland (2013).
+
 Primary functions include:
 
 \code{Fourier2d}, \code{kernel2dsmooth} and \code{kernel2dmeitsjer}
@@ -34,6 +36,8 @@ The functions utilize the convolution theorem along with the Fast Fourier Transf
 Eric Gilleland
 }
 \references{
+
+Gilleland, E. (2013) Two-dimensional kernel smoothing: Using the R package smoothie.  \emph{NCAR Technical Note}, TN-502+STR, 17pp. Available at: \url{http://opensky.library.ucar.edu/collections/TECH-NOTE-000-000-000-869}
 
 Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman \& Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
 
