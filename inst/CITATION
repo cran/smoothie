@@ -1,0 +1,15 @@
+citHeader("To cite package 'smoothie' in publications use:")
+     
+     ## R >= 2.8.0 passes package metadata to citation().
+     if(!exists("meta") || is.null(meta)) meta <- packageDescription("smoothie")
+     year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
+     vers <- paste("R package version", meta$Version)
+     
+     citEntry(entry="techreport",
+              title = "Two-dimensional kernel smoothing: Using the R package smoothie",
+              author = personList(as.person("Eric Gilleland")),
+              institution = "NCAR Technical Note, TN-502+STR, 17pp.",
+              year = 2013,
+              textVersion =
+              paste("Gilleland, E. (2013) Two-dimensional kernel smoothing: Using the R package smoothie. ",
+                    "NCAR Technical Note, TN-502+STR, 17pp.", sep=""))
