@@ -57,6 +57,8 @@ The specific types of kernels that can be made are as follows.  In each case, h=
 \dQuote{unsharp} Unsharp contrast enhancement filter.  This is simply given by a 3 by 3 matrix of al zeros, except for a one in the center subtracted by a laplacian operator kernel matrix.  Requires the same arguments as for \dQuote{laplacian}.  Returns a 3 by 3 matrix.
 
 \dQuote{wave} The wave kernel is defined by K(phi) = phi/h * sin( h/phi).  Requires arguments nx, ny and phi be specified.  Returns an nx by ny matrix.
+
+\dQuote{oval} The oval kernel is like it sounds, it yields an oval-shaped kernel.  Allows arguments a (scale in x-direction), b (scale in y-direction), n (size of kernel in x-direction) and m (size of kernel in y-direction).  Default for a and b is 1, and default for n is the maximum of a and b plus two.  The default for m is to be identical to n.
 }
 \value{
 matrix of dimension determined by the specific type of kernel, and possibly user passed arguments giving the kernel to be used by \code{kernel2dsmooth}.
@@ -68,11 +70,11 @@ Davis, C. A., Brown, B. G. and Bullock, R. G. (2006a) Object-based verification 
 
 Davis, C. A., Brown, B. G. and Bullock, R. G. (2006b) Object-based verification of precipitation forecasts, Part II: Application to convective rain systems. \emph{Mon. Wea. Rev.}, \bold{134}, 1785--1795.
 
-Ebert, E. E. (2008) Fuzzy verification of high resolution gridded forecasts: A review and proposed framework. \emph{Meteorol. Appl.}, \bold{15}, 51-64. doi:10.1002/met.25.  Available at \url{http://www.ecmwf.int/newsevents/meetings/workshops/2007/jwgv/METspecialissueemail.pdf}
+Ebert, E. E. (2008) Fuzzy verification of high resolution gridded forecasts: A review and proposed framework. \emph{Meteorol. Appl.}, \bold{15}, 51-64. \doi{10.1002/met.25}.  
 
 Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman \& Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
 
-Roberts, N. M. and Lean, H. W. (2008) Scale-selective verification of rainfall accumulations from high-resolution forecasts of convective events.  \emph{Mon. Wea. Rev.}, \bold{136}, 78--97.  doi:10.1175/2007MWR2123.1.
+Roberts, N. M. and Lean, H. W. (2008) Scale-selective verification of rainfall accumulations from high-resolution forecasts of convective events.  \emph{Mon. Wea. Rev.}, \bold{136}, 78--97.  \doi{10.1175/2007MWR2123.1}.
 
 Sobash, R. A., Kain, J. S. Bright, D. R. Dean, A. R. Coniglio, M. C. and Weiss, S. J. (2011) Probabilistic forecast guidance for severe thunderstorms based on the identification of extreme phenomena in convection-allowing model forecasts. \emph{Wea. Forecasting}, \bold{26}, 714--728.
 
@@ -198,6 +200,8 @@ lennon.smStd <- kernel2dsmooth( lennon, kernel.type="student", p=1.5, nx=10, ny=
 par( mfrow=c(2,1), mar=rep(0.1,4))
 image.plot( lennon.smCau, col=tim.colors(256), axes=FALSE)
 image.plot( lennon.smStd, col=tim.colors(256), axes=FALSE)
+
+image.plot( lennon, kernel.type = "oval", n = 10, m = 15, a = 6, b = 3 )
 }
 }
 \keyword{ math }

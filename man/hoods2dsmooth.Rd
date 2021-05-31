@@ -38,7 +38,7 @@ optional arguments to the specific kernel type in the call to \code{kernel2dsmoo
 
 \details{
 
-This is a wrapper function to \code{kernel2dsmooth}.  See its help file for more details.  These functions can be useful for functions that allow a user to smooth a field with a choice of smoothing functions.  Makes use of the convolution theorem with the fast Fourier transform for computational efficiency (Ritter and Wilson, 2001; Barrett and Myers, 2004).  Missing values are set to zero, and borders are zero-padded to an optimal amount.  See Hastie and Tibshirani (1990) for smoothing functions in the context of statistical analysis.
+This function is a wrapper for \code{kernel2dsmooth}.  See its help file for more details.  These functions can be useful for functions that allow a user to smooth a field with a choice of smoothing functions.  Makes use of the convolution theorem with the fast Fourier transform for computational efficiency (Ritter and Wilson, 2001; Barrett and Myers, 2004).  Missing values are set to zero, and borders are zero-padded to an optimal amount.  See Hastie and Tibshirani (1990) for smoothing functions in the context of statistical analysis.
 
 \code{hoods2dsmooth} is a wrapper to \code{kernel2dsmooth} that employs the boxcar kernel with neighborhood length as the smoothing parameter, \code{lambda}.  This is the type of kernel smoothing, for example, proposed by Roberts and Lean (2008) and used in Ebert (2008) in the context of spatial weather forecast verification (and used by the \pkg{SpatialVx} package).  The smoothing parameter lambda should be an odd positive integer (though it need not be an actual integer recognized by R).  If it is not, then one of several things will happen depending on its value, and a warning is generated.  If it is not an integer (i.e., if floor(lambda) != lambda), the floor of lambda is taken. If it is even (possibly after flooring), one is subtracted from it.  If it is less than one (possibly after flooring and/or subtracting one), it is set to one (note that if lambda = 1, the field x is returned untouched).
 
@@ -64,13 +64,13 @@ Davis, C. A., Brown, B. G. and Bullock, R. G. (2006a) Object-based verification 
 
 Davis, C. A., Brown, B. G. and Bullock, R. G. (2006b) Object-based verification of precipitation forecasts, Part II: Application to convective rain systems. \emph{Mon. Wea. Rev.}, \bold{134}, 1785--1795.
 
-Ebert, E. E. (2008) Fuzzy verification of high resolution gridded forecasts: A review and proposed framework. \emph{Meteorol. Appl.}, \bold{15}, 51--64. doi:10.1002/met.25.  Available at \url{http://www.ecmwf.int/newsevents/meetings/workshops/2007/jwgv/METspecialissueemail.pdf}
+Ebert, E. E. (2008) Fuzzy verification of high resolution gridded forecasts: A review and proposed framework. \emph{Meteorol. Appl.}, \bold{15}, 51--64. \doi{10.1002/met.25}.  
 
 Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman \& Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
 
 Ritter, G. X. and Wilson, J. N. (2001) \emph{Handbook of Computer Vision Algorithms in Image Algebra}.  2nd Edition, CRC Press, Boca Raton, Florida, U.S.A., 417pp.
 
-Roberts, N. M. and Lean, H. W. (2008) Scale-selective verification of rainfall accumulations from high-resolution forecasts of convective events.  \emph{Mon. Wea. Rev.}, \bold{136}, 78--97.  doi:10.1175/2007MWR2123.1.
+Roberts, N. M. and Lean, H. W. (2008) Scale-selective verification of rainfall accumulations from high-resolution forecasts of convective events.  \emph{Mon. Wea. Rev.}, \bold{136}, 78--97.  \doi{10.1175/2007MWR2123.1}.
 
 }
 

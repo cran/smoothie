@@ -131,12 +131,13 @@ function( x, kernel.type=NULL, K=NULL, W=NULL, X=NULL, xdim=NULL, Nxy=NULL, setu
    return( zapsmall(out))
 } # end of 'kernel2dsmooth' function.
 
-kernel2dmeitsjer <- function(type="gauss", ...) {
+kernel2dmeitsjer <- function( type = "gauss", ... ) {
 
    theta <- list(...)
 
    if(!is.null(theta$h)) h <- theta$h
-   else if(!is.null(theta$nx) & !is.null(theta$ny)) {
+   else if( !is.null( theta$nx ) && !is.null( theta$ny ) ) {
+
         nx <- theta$nx
         ny <- theta$ny
         if(!is.null(theta$a)) a <- theta$a
@@ -146,17 +147,21 @@ kernel2dmeitsjer <- function(type="gauss", ...) {
         xcen <- nx/2
         ycen <- ny/2
         h <- (xgrid - xcen)^2 + (ygrid - ycen)^2
+
    }
 
    if( !is.null( theta$sigma)) {
+
 	sigma <- theta$sigma
 	sigma2 <- sigma^2
+
    }
 
    if( type=="average") out <- matrix( 1/(theta$nx*theta$ny), theta$nx, theta$ny)
    else if( type=="boxcar") out <- matrix( 1/(theta$n^2), theta$n, theta$n)
    else if( type=="cauchy") out <- 1/(1+h/sigma)
    else if( type=="disk") {
+
 	r   <- theta$r
  	r2 <- r^2
 	rint  <- ceiling(r-0.5)
@@ -188,7 +193,9 @@ kernel2dmeitsjer <- function(type="gauss", ...) {
 	hold <- hold + (val1 < r2)
 	hold[rint+1,rint+1] <- min(pi*r2,pi/2)
 	rc2 <- rint-0.5
+
      if ((rint>0) & (r > rc2) & (r2 < rc2^2+0.25)) { 
+
 	tmp1  <- sqrt(r2 - rc2^2)
 	tmp1n <- tmp1/r
 	hold0 <- 2*(r^2*(0.5*asin(tmp1n) + 0.25*sin(2*asin(tmp1n)))-tmp1*(rint-0.5))
@@ -200,20 +207,28 @@ kernel2dmeitsjer <- function(type="gauss", ...) {
 	hold[rint+1,2*rint]	<- hold[rint+1,2*rint] - hold0
 	hold[rint+1,2]		<- hold[rint+1,2]      - hold0
 	hold[2,rint+1]		<- hold[2,rint+1]      - hold0
+
      } # end of if stmts.
+
      hold[rint+1,rint+1] <- min(hold[rint+1,rint+1],1)
      Sn <- sum( colSums( hold, na.rm=TRUE), na.rm=TRUE)
      out <- hold/Sn
+
    } else if(type=="epanechnikov") {
+
 	out <- matrix(0, nx, ny)
 	out[ h <= 1] <- 3/4*(1-h[ h <= 1]/sigma2)
+
    } else if( type=="exponential") {
+
 	if( !is.null(theta$a)) a <- theta$a
 	else a <- 1
 	h <- sqrt( h)
 	out <- a*exp(-h/(2*sigma2))
+
    } else if( type=="gauss") out <- (1/(2*pi*sigma2))*exp(-h/(2*sigma2))
    else if( type=="laplacian" | type=="unsharp") {
+
       if( !is.null( theta$a)) a <- theta$alpha
       else a <- 0
       a <- max( 0, min(a,1))
@@ -221,52 +236,100 @@ kernel2dmeitsjer <- function(type="gauss", ...) {
       o2 <- (1-a)/(1+a)
       out <- rbind( c(o1, o2, o1), c( o2, -4/(a+1), o2), c(o1, o2, o1))
       if( type=="unsharp") out <- rbind( rep(0,3), c(0,1,0), rep(0,3)) - out
+
    } else if(type=="LoG") {
+
       out <- (h-2*sigma2)*exp(-h/(2*sigma2))/(sigma2^2)
       out <- out - mean(out)
+
    } else if(type=="minvar") {
+
         out <- matrix(0, nx, ny)
 	out[ h <= 1] <- 3/8*(3 - 5*h[ h <= 1]/sigma2)
+
    } else if( type=="multiquad") {
+
 	a2 <- (theta$a)^2
 	if( is.null( theta$inverse)) inverse <- FALSE
 	else inverse <- theta$inverse
         out <- sqrt((h+a2))
 	if( inverse) out <- 1/out
+
    } else if( type=="power") {
+
 	p <- theta$p
         h <- sqrt( h)
 	if( is.null( theta$do.log)) do.log <- FALSE
 	else do.log <- theta$do.log
 	if( !do.log) out <- -h^p
 	else out <- -log(h^p+1)
+
    } else if( type=="prewitt") {
+
       out <- rbind( rep(1,3), rep(0,3), rep(-1,3))
       if( !is.null( theta$transpose)) if( theta$transpose) out <- t( out)
+
    } else if( type=="radial") {
+
 	a <- theta$a
 	m <- theta$m
 	d <- theta$d
      	if( d%%2==0) out <- a*h^(2*m-d)*log(h)
      	else out <- a*h^(2*m-d)
      	out[ is.na(out)] <- 0
+
    } else if( type=="ratquad") {
+
 	a <- theta$a
 	out <- 1 - h/(h+a)
+
    } else if( type=="sobel") {
+
       out <- rbind( c(1,2,1), rep(0,3), c(-1,-2,-1))
       if( !is.null( theta$transpose)) if( theta$transpose) out <- t( out)
+
    } else if( type=="student") {
+
 	p <- theta$p
 	h <- sqrt(h)
 	out <- 1/(1+h^p)
+
    } else if( type=="wave") {
+
 	phi <- theta$phi
         h <- sqrt( h)
 	out <- (phi/h)*sin(h/phi)
 	out[ is.na( out)] <- 0
-   }
-   return(out)
+
+   } else if( type == "oval" ) {
+
+	a <- theta$a
+	b <- theta$b
+	n <- theta$n
+	m <- theta$m
+
+	if( is.null( a ) ) a <- 1
+	if( is.null( b ) ) b <- 1
+
+	if( is.null( n ) ) n <- max( a, b ) + 2
+	if( is.null( m ) ) m <- n
+
+	n2 <- floor( n / 2 )
+	m2 <- floor( m / 2 )
+
+	l1 <- cbind( rep( 1:n, m ), rep( 1:m, each = n ) )
+	l2 <- cbind( ( ( l1[, 1 ] - n2 ) / a )^2, ( ( l1[, 2] - m2 ) / b )^2 )
+
+	id <- apply( l2, 1, sum ) <= 1
+
+	out <- numeric( n * m )
+	out[ id ] <- 1 / sum( id, na.rm = TRUE ) 
+	out <- matrix( out, n, m )
+
+    }
+
+    return(out)
+
 } # end of 'kernel2dmeitsjer' function.
 
 hoods2dsmooth <- function( x, lambda, W=NULL, setup=FALSE, ...) {

@@ -1,7 +1,7 @@
 \name{kernel2dsmooth}
 \alias{kernel2dsmooth}
 \title{Convolution Smooth on a 2-d Field.}
-\description{Perform a onvolution smooth on a 2-d field.  Default is to take an average over all neighbors within (n-1)/2 grid points from each grid point.  Uses FFT with the convolution theorem for computational efficiency.}
+\description{Perform a convolution smooth on a 2-d field.  Default is to take an average over all neighbors within (n-1)/2 grid points from each grid point.  Uses FFT with the convolution theorem for computational efficiency.}
 \usage{
 kernel2dsmooth(x, kernel.type=NULL,
     K = NULL, W = NULL, X = NULL, xdim = NULL, Nxy = NULL,
@@ -37,13 +37,13 @@ Davis, C. A., Brown, B. G. and Bullock, R. G. (2006a) Object-based verification 
 
 Davis, C. A., Brown, B. G. and Bullock, R. G. (2006b) Object-based verification of precipitation forecasts, Part II: Application to convective rain systems. \emph{Mon. Wea. Rev.}, \bold{134}, 1785--1795.
 
-Ebert, E. E. (2008) Fuzzy verification of high resolution gridded forecasts: A review and proposed framework. \emph{Meteorol. Appl.}, \bold{15}, 51--64. doi:10.1002/met.25.  Available at \url{http://www.ecmwf.int/newsevents/meetings/workshops/2007/jwgv/METspecialissueemail.pdf}
+Ebert, E. E. (2008) Fuzzy verification of high resolution gridded forecasts: A review and proposed framework. \emph{Meteorol. Appl.}, \bold{15}, 51--64. \doi{10.1002/met.25}.  
 
 Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman \& Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
 
 Ritter, G. X. and Wilson, J. N. (2001) \emph{Handbook of Computer Vision Algorithms in Image Algebra}.  2nd Edition, CRC Press, Boca Raton, Florida, U.S.A., 417pp.
 
-Roberts, N. M. and Lean, H. W. (2008) Scale-selective verification of rainfall accumulations from high-resolution forecasts of convective events.  \emph{Mon. Wea. Rev.}, \bold{136}, 78--97.  doi:10.1175/2007MWR2123.1.
+Roberts, N. M. and Lean, H. W. (2008) Scale-selective verification of rainfall accumulations from high-resolution forecasts of convective events.  \emph{Mon. Wea. Rev.}, \bold{136}, 78--97.  \doi{10.1175/2007MWR2123.1}.
   
 }
 \author{Eric Gilleland}

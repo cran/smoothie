@@ -37,7 +37,7 @@ Eric Gilleland
 }
 \references{
 
-Gilleland, E. (2013) Two-dimensional kernel smoothing: Using the R package smoothie.  \emph{NCAR Technical Note}, TN-502+STR, 17pp. Available at: \url{http://opensky.library.ucar.edu/collections/TECH-NOTE-000-000-000-869}
+Gilleland, E. (2013) Two-dimensional kernel smoothing: Using the R package smoothie.  \emph{NCAR Technical Note}, TN-502+STR, 17pp., \doi{10.5065/D61834G2}.
 
 Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman \& Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
 

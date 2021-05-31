@@ -1,6 +1,9 @@
 # Default NAMESPACE created by R
 # Remove the previous line if you edit this file
 
+# Imports
+importFrom("stats", "fft")
+
 # Export all names
 exportPattern(".")
 
