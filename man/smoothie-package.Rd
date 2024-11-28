@@ -39,7 +39,7 @@ Eric Gilleland
 
 Gilleland, E. (2013) Two-dimensional kernel smoothing: Using the R package smoothie.  \emph{NCAR Technical Note}, TN-502+STR, 17pp., \doi{10.5065/D61834G2}.
 
-Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman \& Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
+Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman and Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
 
 Souza, C. R. (2010) \emph{Kernel Functions for Machine Learning Applications}. 17 Mar 2010. Web. \url{http://crsouza.blogspot.com/2010/03/kernel-functions-for-machine-learning.html}.
 

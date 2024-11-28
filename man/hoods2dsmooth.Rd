@@ -66,7 +66,7 @@ Davis, C. A., Brown, B. G. and Bullock, R. G. (2006b) Object-based verification 
 
 Ebert, E. E. (2008) Fuzzy verification of high resolution gridded forecasts: A review and proposed framework. \emph{Meteorol. Appl.}, \bold{15}, 51--64. \doi{10.1002/met.25}.  
 
-Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman \& Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
+Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman and Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
 
 Ritter, G. X. and Wilson, J. N. (2001) \emph{Handbook of Computer Vision Algorithms in Image Algebra}.  2nd Edition, CRC Press, Boca Raton, Florida, U.S.A., 417pp.
 

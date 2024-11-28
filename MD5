@@ -1,10 +1,10 @@
-60aa7e1a45a6aeaa053ef42a284cbb02 *DESCRIPTION
+26231435db77e31726aaa428dcc41afd *DESCRIPTION
 c3ceb059e4c51ef2d7a16eccbaa26da2 *NAMESPACE
 f8d4560583fce1045b37c166e134cb40 *R/smoothers.R
-9f384d5166450d9694b269f8a9f243d5 *build/partial.rdb
-bf178bdae0f0d8d9fdaa8b2cd3b0875b *inst/CITATION
+1dda19015f0aa969acee990c150e3ac9 *build/partial.rdb
+fc7b9323bf5df2649395bd14a9b5bb44 *inst/CITATION
 f0aa633f8105fc278beda5b761bc2118 *man/Fourier2d.Rd
-c0ca037f1aee49b3f53e1d15b3c6e1fc *man/hoods2dsmooth.Rd
-a66f2a47286f60d22055d8f69efd264d *man/kernel2dmeitsjer.Rd
-f0f65d32bd223d3a3bb567a7fe5e318c *man/kernel2dsmooth.Rd
-7c7d3e2c4549ca4db23892aa207a9f6c *man/smoothie-package.Rd
+1315cefe724650a724432945d9c045fd *man/hoods2dsmooth.Rd
+4df2370acfe9650c6b06632a0a4f09dc *man/kernel2dmeitsjer.Rd
+8b4b365c6b66043119de09f8d04157ac *man/kernel2dsmooth.Rd
+4c8c6b3beff52fe50b0ea3ab7e18df7b *man/smoothie-package.Rd

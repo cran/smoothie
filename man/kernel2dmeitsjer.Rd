@@ -72,7 +72,7 @@ Davis, C. A., Brown, B. G. and Bullock, R. G. (2006b) Object-based verification 
 
 Ebert, E. E. (2008) Fuzzy verification of high resolution gridded forecasts: A review and proposed framework. \emph{Meteorol. Appl.}, \bold{15}, 51-64. \doi{10.1002/met.25}.  
 
-Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman \& Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
+Hastie, T. J. and Tibshirani, R. J. (1990) \emph{Generalized Additive Models}. Chapman and Hall/CRC Monographs on Statistics and Applied Probability 43, 335pp.
 
 Roberts, N. M. and Lean, H. W. (2008) Scale-selective verification of rainfall accumulations from high-resolution forecasts of convective events.  \emph{Mon. Wea. Rev.}, \bold{136}, 78--97.  \doi{10.1175/2007MWR2123.1}.
 

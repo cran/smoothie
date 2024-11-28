@@ -5,12 +5,13 @@ citHeader("To cite package 'smoothie' in publications use:")
      year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
      vers <- paste("R package version", meta$Version)
      
-     citEntry(entry="techreport",
+     bibentry(bibtype="techreport",
               title = "Two-dimensional kernel smoothing: Using the R package smoothie",
-              author = personList(as.person("Eric Gilleland")),
+              author = person( given = "Eric", family = "Gilleland", email = "eric.gilleland@colostate.edu",
+	                      comment = c( ORCID = "0000-0002-8058-7643" ) ),
               institution = "NCAR Technical Note, TN-502+STR, 17pp.",
               year = 2013,
 	      doi="10.5065/D61834G2",
               textVersion =
               paste("Gilleland, E. (2013) Two-dimensional kernel smoothing: Using the R package smoothie. ",
-                    "NCAR Technical Note, TN-502+STR, 17pp., doi:10.5065/D61834G2.", sep=""))
+                    "NCAR Technical Note, TN-502+STR, 17pp., doi:10.5065/D61834G2.", sep="") )
